@@ -9,8 +9,8 @@
   "name": "back-slash",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/zicaboom/backSlash.git",
-  "author": "zicaboom <victormonteirojesus@gmail.com>",
+  "repository": "https://github.com/zicaboom/back-slash-server.git",
+  "author": "Victor Monteiro <victormonteirojesus@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
