@@ -14,6 +14,9 @@ class Club {
     created_by: string
 
     @Column()
+    approved: boolean
+
+    @Column()
     created_at: string
 
     @JoinColumn({name: "created_by"})

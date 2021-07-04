@@ -16,13 +16,24 @@
 
 [ x ] Não podem existir dois com o mesmo nome
 
+[  ] Usuários so podem se juntar a clubs aprovados 
+
+[  ] Se forem cadastradas por admins são aprovadas automaticamente
+
+[  ] Só podem ser criados por usuários autenticados
+
+
+### questions:
+
+[  ] Não podem ter o conteúdo/titulo vazios
+
+[  ] Só podem ser criados por usuários autenticados
+
 
 
 #### Processos para execução
 
 - Cadastro de perguntas 
-
-- Relações de dados 
 
 - Desenho do esquema do banco
 

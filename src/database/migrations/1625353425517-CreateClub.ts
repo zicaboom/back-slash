@@ -22,6 +22,11 @@ export class CreateClub1625353425517 implements MigrationInterface {
                         isNullable: true
                     },
                     {
+                        name: "approved",
+                        type: "boolean",
+                        default: false
+                    },
+                    {
                         name: "created_at",
                         type: "timestamp",
                         default: "now()"

@@ -1,8 +1,8 @@
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 
-function cathErrors(err: Error, req: Request, res: Response){
+function cathErrors(err: Error,req:Request, res: Response, next:NextFunction){
     if(err instanceof Error){
-        return res.status(400).json({
+        return res.status(401).json({
             erro: err.message  
         })
     }

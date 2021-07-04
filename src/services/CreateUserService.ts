@@ -1,6 +1,7 @@
 import { classToPlain } from "class-transformer";
 import { UsersRepositories } from "src/repositories/UsersRepositories";
 import { getCustomRepository } from "typeorm";
+import { hash } from "bcryptjs"
 
 interface ICreateUser{
     name: string,
@@ -23,10 +24,12 @@ class CreateUserService{
             throw new Error("User Already Exists")
         }
 
+        const passwordHash = await hash(password, 8)
+
         const user = usersRepository.create({
             name,
             email, 
-            password,
+            password: passwordHash,
             admin
         })
 
