@@ -19,6 +19,9 @@ module.exports = {
             '@services': './src/services',
         }
       }
+    }],
+    ["@babel/plugin-proposal-decorators",{
+      "legacy": true 
     }]
   ],
   ignore: [
