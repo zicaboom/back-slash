@@ -1,6 +1,6 @@
 # backSlash 📨
 
-### Aplicativo de perguntas e respostas baseado em grupo de pessoas
+### Aplicativo de perguntas e respostas baseado em grupo(Clubs) de pessoas
 
 ### Regras: 
 
@@ -16,11 +16,11 @@
 
 [ x ] Não podem existir dois com o mesmo nome
 
-[  ] Usuários so podem se juntar a clubs aprovados 
+[ x ] Usuários so podem se juntar a clubs aprovados 
 
-[  ] Se forem cadastradas por admins são aprovadas automaticamente
+[ x ] Se forem cadastradas por admins são aprovadas automaticamente
 
-[  ] Só podem ser criados por usuários autenticados
+[ x ] Só podem ser criados por usuários autenticados
 
 
 ### questions:
@@ -35,13 +35,11 @@
 
 - Cadastro de perguntas 
 
-- Desenho do esquema do banco
+- Listagem de clubs
 
-- Melhorar a detecção de erros
+- Listagem de usuários
 
-- Encriptar a senha do usuário
-
-- Sistema de autenticação
+- Listagem de perguntas
 
 
 
