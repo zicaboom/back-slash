@@ -12,17 +12,19 @@ module.exports = {
   ],
   plugins: [
     ['module-resolver', {
+      root: ["./"],
       alias: {
-        alias: {
-            '@controllers': './src/controllers',
-            '@entities': './src/entities',
-            '@services': './src/services',
-        }
+          '@controllers': './src/controllers',
+          '@entities': './src/entities',
+          '@services': './src/services',
+          '@repositories': './src/repositories'
       }
     }],
     ["@babel/plugin-proposal-decorators",{
       "legacy": true 
-    }]
+    }],
+    ["@babel/plugin-proposal-class-properties", { "loose" : true }],
+    'babel-plugin-transform-typescript-metadata'
   ],
   ignore: [
     '**/*.spec.ts'

@@ -1,5 +1,5 @@
-import { ClubsRepositories } from "src/repositories/ClubsRepositories";
-import { UsersRepositories } from "src/repositories/UsersRepositories";
+import { ClubsRepositories } from "../repositories/ClubsRepositories";
+import { UsersRepositories } from "../repositories/UsersRepositories";
 import { getCustomRepository } from "typeorm";
 
 interface ICreateClub{
@@ -27,12 +27,13 @@ class CreateClubService{
         const club = clubsRepository.create({
             name,
             created_by: user,
-            approved: admin
+            approved: admin,
+            approved_by: admin ? user : null
         })
 
         await clubsRepository.save(club)
 
-        return club
+        return  club 
     }
 }
 

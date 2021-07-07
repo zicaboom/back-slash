@@ -15,12 +15,10 @@ export class JoinClubs1625441108803 implements MigrationInterface {
                     {
                         name: "club_id",
                         type: "varchar",
-                        isNullable: false
                     },
                     {
                         name: "user_id",
                         type: "varchar",
-                        isNullable: false
                     },
                     {
                         name: "joined_at",
@@ -53,5 +51,4 @@ export class JoinClubs1625441108803 implements MigrationInterface {
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.dropTable("user_clubs")
     }
-
 }

@@ -1,5 +1,5 @@
 import { compare } from "bcryptjs";
-import { UsersRepositories } from "src/repositories/UsersRepositories";
+import { UsersRepositories } from "../repositories/UsersRepositories";
 import { getCustomRepository } from "typeorm";
 import { sign } from "jsonwebtoken"
 import { key }   from "../config/configAuth"
@@ -32,7 +32,7 @@ class AuthenticateUserService{
             expiresIn: "1d"
         })
 
-        return token
+        return { token }
     }
 }
 

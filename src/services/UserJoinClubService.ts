@@ -1,5 +1,5 @@
-import { ClubsRepositories } from "src/repositories/ClubsRepositories"
-import { UserClubsRepositories } from "src/repositories/UserClubsRepositories"
+import { ClubsRepositories } from "../repositories/ClubsRepositories"
+import { UserClubsRepositories } from "../repositories/UserClubsRepositories"
 import { getCustomRepository } from "typeorm"
 
 interface IUserJoinClub{
@@ -35,7 +35,7 @@ class UserJoinClubService{
 
         await userClubsRepository.save(userClub)
 
-        const join = await userClubsRepository.findOne({user_id, club_id}, { relations: ["userId", "clubId"] })
+        const join = await userClubsRepository.findOne({user_id, club_id}, { relations: ["clubId"] })
 
         return join
     }

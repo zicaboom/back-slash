@@ -25,15 +25,20 @@
 
 ### questions:
 
-[  ] Não podem ter o conteúdo/titulo vazios
+[ x ] Não podem ter o conteúdo/titulo vazios
 
-[  ] Só podem ser criados por usuários autenticados
+[ x ] Só podem ser criados por usuários autenticados
+
+[ x ] Só podem ser criadas sem conteúdos vazios 
+
+[ x ] Só podem se juntar as clubs aprovados
+
 
 
 
 #### Processos para execução
 
-- Cadastro de perguntas 
+- Melhorar a criação de questões
 
 - Listagem de clubs
 

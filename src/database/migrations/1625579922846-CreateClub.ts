@@ -1,6 +1,6 @@
 import {MigrationInterface, QueryRunner, Table} from "typeorm";
 
-export class CreateClub1625353425517 implements MigrationInterface {
+export class CreateClub1625579922846 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
@@ -27,7 +27,18 @@ export class CreateClub1625353425517 implements MigrationInterface {
                         default: false
                     },
                     {
+                        name: "approved_by",
+                        type: "varchar",
+                        default: null,
+                        isNullable: true
+                    },
+                    {
                         name: "created_at",
+                        type: "timestamp",
+                        default: "now()"
+                    },
+                    {
+                        name: "updated_at",
                         type: "timestamp",
                         default: "now()"
                     }
@@ -38,6 +49,14 @@ export class CreateClub1625353425517 implements MigrationInterface {
                         referencedTableName: "users",
                         referencedColumnNames: ["id"],
                         columnNames: ["created_by"],
+                        onDelete: "SET NULL",
+                        onUpdate: "NO ACTION"
+                    },
+                    {
+                        name: "FkUserApproveClub",
+                        referencedTableName: "users",
+                        referencedColumnNames: ["id"],
+                        columnNames: ["approved_by"],
                         onDelete: "SET NULL",
                         onUpdate: "NO ACTION"
                     }
