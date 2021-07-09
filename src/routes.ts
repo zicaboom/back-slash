@@ -9,6 +9,7 @@ import { Router } from "express";
 import { ensureAuthenticated } from "./middlewares/ensureAuthenticated";
 import { ensureAdmin } from "./middlewares/ensureAdmin";
 import { ApproveClubController } from "./controllers/ApproveClubController";
+import { ListUserController } from "./controllers/ListUserController";
 
 const routes = Router()
 
@@ -20,6 +21,7 @@ const createQuestionController = new CreateQuestionController
 const questionJoinClubController = new QuestionJoinClubController
 const listClubController = new ListClubController
 const approveClubController = new ApproveClubController
+const listUserController =new ListUserController
 
 routes.post("/users", createUserController.handle)
 routes.post("/login", authenticateUserController.handle)
@@ -29,6 +31,7 @@ routes.post("/questions", ensureAuthenticated, createQuestionController.handle)
 routes.post("/questions/join", ensureAuthenticated,questionJoinClubController.handle)
 
 routes.get("/clubs", ensureAuthenticated, listClubController.handle)
+routes.get("/users", ensureAuthenticated, listUserController.handle)
 
 routes.put("/clubs/approve", ensureAuthenticated, ensureAdmin, approveClubController.handle)
 

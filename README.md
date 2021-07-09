@@ -53,15 +53,13 @@
 
 #### users: 
 
-[  ] Só podem ser acessados por usuários autenticados
+[ x ] Só podem ser acessados por usuários autenticados
 
 
 
 
 #### Processos para execução
 
-
-- Listagem de usuários
 
 - Listagem de perguntas
 
