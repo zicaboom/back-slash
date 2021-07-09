@@ -1,5 +1,5 @@
 import { QuestionClub } from "@entities/QuestionClub";
-import { EntityRepository, Repository } from "typeorm";
+import { EntityColumnNotFound, EntityRepository, getCustomRepository, Repository } from "typeorm";
 
 @EntityRepository(QuestionClub)
 class QuestionClubsRepositories extends Repository<QuestionClub>{}

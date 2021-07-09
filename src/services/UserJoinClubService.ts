@@ -37,7 +37,7 @@ class UserJoinClubService{
 
         const join = await userClubsRepository.findOne({user_id, club_id}, { relations: ["clubId"] })
 
-        return join
+        return {join}
     }
 }
 

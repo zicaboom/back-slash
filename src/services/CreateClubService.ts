@@ -33,7 +33,7 @@ class CreateClubService{
 
         await clubsRepository.save(club)
 
-        return  club 
+        return  { club }
     }
 }
 

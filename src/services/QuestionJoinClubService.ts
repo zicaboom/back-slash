@@ -14,49 +14,32 @@ class QuestionJoinClubService{
         const clubsRepository =  getCustomRepository(ClubsRepositories)
         const questionsRepository = getCustomRepository(QuestionRepositories)
 
-        if(!clubs_id.length){
-            await questionsRepository.delete(question_id)
-            throw new Error("Question clubs incorrect")
+        const question = await questionsRepository.findOne(question_id)
+
+        if(!question){
+            throw new Error("Question don't exists")
         }
 
-        const removeClubsRepetitions = new Set(clubs_id)
-
-        clubs_id = [...removeClubsRepetitions]
-
-        let errors = []
-
-        for (let i in clubs_id){
-            const club_id = clubs_id[i]
-
-            const club = await clubsRepository.findOne(club_id)
-
-            if(club){
-                if(club.approved){
-                    const join = questionClubsRepository.create({
-                        club_id,
-                        question_id
-                    })
-
-                    await questionClubsRepository.save(join)   
-                }else{
-                    errors.push(`Club id:${club_id}, don't is approved`)
-                }
-            }else{
-                errors.push(`Club id:${club_id}, don't exists`)
+        const clubs = await clubsRepository.findByIds(clubs_id, {
+            where: {
+                approved: true
             }
-        }
-
-        const joins = await questionClubsRepository.find({
-            where: {question_id},
-            relations: ["clubId"]
         })
 
-        if(!joins.length){
-            await questionsRepository.delete(question_id)
-            throw new Error("Not able to create question, try again")
+        if(!clubs.length){
+            throw new Error("Clubs incorrect")
         }
 
-        return {joins, errors}
+        const joins = questionClubsRepository.create(clubs.map((club)=>{
+            return {
+                question_id,
+                club_id: club.id
+            }
+        }))
+
+        await questionClubsRepository.save(joins)
+
+        return {joins}
     }
 }
 

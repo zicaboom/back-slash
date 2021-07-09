@@ -27,7 +27,7 @@ class CreateQuestionService {
 
         await questionRepository.save(question)
 
-        return  question
+        return  {question}
     }
 }
 export{CreateQuestionService}
