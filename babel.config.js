@@ -11,15 +11,6 @@ module.exports = {
     '@babel/preset-typescript'
   ],
   plugins: [
-    ['module-resolver', {
-      root: ["./"],
-      alias: {
-          '@controllers': './src/controllers',
-          '@entities': './src/entities',
-          '@services': './src/services',
-          '@repositories': './src/repositories'
-      }
-    }],
     ["@babel/plugin-proposal-decorators",{
       "legacy": true 
     }],

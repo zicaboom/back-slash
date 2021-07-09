@@ -10,17 +10,11 @@
     "resolveJsonModule": true,
     "typeRoots": ["./src/@types",
       "./node_modules/@types"],                 
-    "types": ["@types/jest", "@types/node"],            
+    "types": ["@types/jest", "@types/node"],     
+    "baseUrl": ".",       
     "esModuleInterop": true,                        
     "experimentalDecorators": true,             
     "emitDecoratorMetadata": true,               
-    "baseUrl": ".",
-    "paths": {
-      "@controllers/*": ["./src/controllers/*"],
-      "@entities/*": ["./src/entities/*"],
-      "@services/*": ["./src/services/*"],
-      "@repositories/*": ["./src/repositories/*"]
-    },
     "skipLibCheck": true,                           
     "forceConsistentCasingInFileNames": true 
   },

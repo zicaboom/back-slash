@@ -1,7 +1,7 @@
 import { ClubsRepositories } from "../repositories/ClubsRepositories";
 import { QuestionClubsRepositories } from "../repositories/QuestionClubsRepositories";
 import { getCustomRepository } from "typeorm";
-import { QuestionRepositories } from "@repositories/QuestionRepositories";
+import { QuestionRepositories } from "../repositories/QuestionRepositories";
 
 interface IQuestionJoinClub{
     question_id: string,
@@ -27,7 +27,7 @@ class QuestionJoinClubService{
         })
 
         if(!clubs.length){
-            throw new Error("Clubs incorrect")
+            throw new Error("This clubs don't exists, or don't is approved")
         }
 
         const joins = questionClubsRepository.create(clubs.map((club)=>{

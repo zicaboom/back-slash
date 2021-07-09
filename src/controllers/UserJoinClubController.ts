@@ -1,4 +1,4 @@
-import { UserJoinClubService } from "@services/UserJoinClubService";
+import { UserJoinClubService } from "../services/UserJoinClubService";
 import { Request, Response } from "express";
 
 class UserJoinClubController{

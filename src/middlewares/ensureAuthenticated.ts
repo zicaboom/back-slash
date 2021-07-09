@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
-import { key } from "src/config/configAuth";
+import { key } from "../config/configAuth";
 
 interface IPayload{
     sub: string

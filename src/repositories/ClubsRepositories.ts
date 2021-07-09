@@ -1,4 +1,4 @@
-import { Club } from "@entities/Club";
+import { Club } from "../entities/Club";
 import { EntityRepository, Repository } from "typeorm";
 
 @EntityRepository(Club)

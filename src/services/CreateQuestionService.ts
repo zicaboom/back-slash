@@ -1,4 +1,4 @@
-import { QuestionRepositories } from "src/repositories/QuestionRepositories";
+import { QuestionRepositories } from "../repositories/QuestionRepositories";
 import { getCustomRepository } from "typeorm";
 
 interface IQuestionCreate{

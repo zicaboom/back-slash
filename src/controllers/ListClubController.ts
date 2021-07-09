@@ -1,4 +1,4 @@
-import { ListClubService } from "@services/ListClubService";
+import { ListClubService } from "../services/ListClubService";
 import { Request, Response } from "express";
 
 

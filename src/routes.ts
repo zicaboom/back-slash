@@ -1,14 +1,14 @@
-import { AuthenticateUserController } from "@controllers/AuthenticateUserController";
-import { CreateClubController } from "@controllers/CreateClubController";
-import { CreateQuestionController } from "@controllers/CreateQuestionController";
-import { CreateUserController } from "@controllers/CreateUserController";
-import { ListClubController } from "@controllers/ListClubController";
-import { QuestionJoinClubController } from "@controllers/QuestionJoinClubController";
-import { UserJoinClubController } from "@controllers/UserJoinClubController";
+import { AuthenticateUserController } from "./controllers/AuthenticateUserController";
+import { CreateClubController } from "./controllers/CreateClubController";
+import { CreateQuestionController } from "./controllers/CreateQuestionController";
+import { CreateUserController } from "./controllers/CreateUserController";
+import { ListClubController } from "./controllers/ListClubController";
+import { QuestionJoinClubController } from "./controllers/QuestionJoinClubController";
+import { UserJoinClubController } from "./controllers/UserJoinClubController";
 import { Router } from "express";
 import { ensureAuthenticated } from "./middlewares/ensureAuthenticated";
 import { ensureAdmin } from "./middlewares/ensureAdmin";
-import { ApproveClubController } from "@controllers/ApproveClubController";
+import { ApproveClubController } from "./controllers/ApproveClubController";
 
 const routes = Router()
 
