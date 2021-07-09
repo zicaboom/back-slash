@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "target": "ES2017",                                
-    "module": "commonjs",                         
+    "module": "CommonJS",                         
     "lib": ["ES6"],                                            
-    "outDir": "./dist",                              
+    "outDir": "build/dist",                              
     "rootDir": "./src",                             
     "removeComments": true,                 
     "strict": false,                         
@@ -18,5 +18,5 @@
     "skipLibCheck": true,                           
     "forceConsistentCasingInFileNames": true 
   },
-  "include":["src/**/*", "bc/1625353425517-CreateClub.ts"]
+  "include":["src/**/*"]
 }

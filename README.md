@@ -16,7 +16,7 @@
 
 [ x ] Não podem existir dois com o mesmo nome
 
-[ x ] Usuários so podem se juntar a clubs aprovados 
+[ x ] Usuários/Questões so podem se juntar a clubs aprovados 
 
 [ x ] Se forem cadastradas por admins são aprovadas automaticamente
 
@@ -33,18 +33,43 @@
 
 [ x ] Só podem se juntar as clubs aprovados
 
+### aprovações:
+
+[ x ] Só pode ser realizada por administradores 
+
+[ x ] Não pode acontecer 2 vezes
+
+### listagem: 
+
+#### clubs:
+
+[ x ] Só pode ser requisitada por usuários autenticados 
+
+[ x ] Apenas administradores podem ver os clubs desaprovados
+
+#### questions:
+
+[  ] São exibidas de acordo com os clubs
+
+#### users: 
+
+[  ] Só podem ser acessados por usuários autenticados
+
 
 
 
 #### Processos para execução
 
-- Melhorar a criação de questões
-
-- Listagem de clubs
 
 - Listagem de usuários
 
 - Listagem de perguntas
+
+- Deleção de usuários
+
+- Deleção de perguntas
+
+- Deleção de clubs
 
 
 

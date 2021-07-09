@@ -1,16 +1,16 @@
 {
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
-    "start": "nodemon dist/server.js",
-    "dev": "ts-node-dev -r tsconfig-paths/register --no-notify --clear --respawn --transpile-only --ignore-watch node_modules src/server.ts",
+    "start": "node ./dist/server.js",
+    "dev": "ts-node-dev -r tsconfig-paths/register --no-notify --clear --respawn --transpile-only --ignore-watch node_modules ./src/server.ts",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
     "test": "jest"
   },
-  "name": "back-slash",
+  "name": "back_slash_server",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/zicaboom/back-slash-server.git",
-  "author": "Victor removeMonteiro <victormonteirojesus@gmail.com>",
+  "author": "Victor Monteiro <victormonteirojesus@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -35,7 +35,6 @@
     "@types/jest": "^26.0.23",
     "@types/jsonwebtoken": "^8.5.2",
     "@types/uuid": "^8.3.0",
-    "babel-plugin-module-resolver": "^4.1.0",
     "babel-plugin-transform-typescript-metadata": "^0.3.2",
     "eslint": "^7.29.0",
     "jest": "^27.0.5",
