@@ -3,16 +3,16 @@ import { Request, Response } from "express";
 
 class UserJoinClubController{
     async handle(req: Request, res: Response){
-        const user_id = req.user_id
+        const user_id = req.user_id;
 
-        const club_id = req.body.club
+        const clubs_id = req.body.clubs;
 
-        const userJoinClubService = new UserJoinClubService
+        const userJoinClubService = new UserJoinClubService;
 
-        const userClub = await userJoinClubService.execute({user_id, club_id})
+        const joins = await userJoinClubService.execute({user_id, clubs_id});
 
-        return res.json(userClub)
+        return res.json(joins);
     }
 }
 
-export { UserJoinClubController }
+export { UserJoinClubController };

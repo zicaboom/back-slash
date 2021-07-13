@@ -4,9 +4,9 @@ import { Club } from "./Club";
 import { Question } from "./Question";
 
 @Entity("question_clubs")
-class QuestionClub{
+class QuestionClub {
     @PrimaryColumn()
-    id:string
+    id: string
 
     @Column()
     club_id: string
@@ -14,19 +14,19 @@ class QuestionClub{
     @Column()
     question_id: string
 
-    @JoinColumn({name: "club_id"})
-    @ManyToOne(()=>Club)
+    @JoinColumn({ name: "club_id" })
+    @ManyToOne(() => Club)
     clubId: Club
 
-    @JoinColumn({name: "question_id"})
-    @ManyToOne(()=> Question)
+    @JoinColumn({ name: "question_id" })
+    @ManyToOne(() => Question)
     questionId: Question
 
-    constructor(){
-        if(!this.id){
-            this.id = uuid()
+    constructor() {
+        if (!this.id) {
+            this.id = uuid();
         }
     }
 }
 
-export{QuestionClub}
+export { QuestionClub };

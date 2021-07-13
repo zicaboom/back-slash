@@ -1,4 +1,4 @@
-import {MigrationInterface, QueryRunner, Table} from "typeorm";
+import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
 export class JoinClubs1625441108803 implements MigrationInterface {
 
@@ -14,11 +14,11 @@ export class JoinClubs1625441108803 implements MigrationInterface {
                     },
                     {
                         name: "club_id",
-                        type: "varchar",
+                        type: "varchar"
                     },
                     {
                         name: "user_id",
-                        type: "varchar",
+                        type: "varchar"
                     },
                     {
                         name: "joined_at",
@@ -26,7 +26,7 @@ export class JoinClubs1625441108803 implements MigrationInterface {
                         default: "now()"
                     }
                 ],
-                foreignKeys:[
+                foreignKeys: [
                     {
                         name: "FkClubJoined",
                         referencedTableName: "clubs",
@@ -45,10 +45,10 @@ export class JoinClubs1625441108803 implements MigrationInterface {
                     }
                 ]
             })
-        )
+        );
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable("user_clubs")
+        await queryRunner.dropTable("user_clubs");
     }
 }

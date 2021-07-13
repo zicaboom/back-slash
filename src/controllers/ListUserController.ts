@@ -3,12 +3,12 @@ import { ListUserService } from "src/services/ListUserService";
 
 class ListUserController{
     async handle(_: Request, res:Response){
-        const listUserService = new ListUserService
+        const listUserService = new ListUserService;
 
-        const users = await listUserService.execute()
+        const users = await listUserService.execute();
 
-        res.json(users)
+        res.json(users);
     }
 }
 
-export { ListUserController }
+export { ListUserController };

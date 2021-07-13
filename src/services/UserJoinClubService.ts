@@ -1,44 +1,65 @@
-import { ClubsRepositories } from "../repositories/ClubsRepositories"
-import { UserClubsRepositories } from "../repositories/UserClubsRepositories"
-import { getCustomRepository } from "typeorm"
+import { ClubsRepositories } from "../repositories/ClubsRepositories";
 
-interface IUserJoinClub{
+import { UserClubsRepositories } from "../repositories/UserClubsRepositories";
+
+import { getCustomRepository } from "typeorm";
+
+interface IUserJoinClub {
+
     user_id: string,
-    club_id: string
+
+    clubs_id: string[]
+
 }
 
-class UserJoinClubService{
-    async execute({user_id, club_id}: IUserJoinClub){
-        const userClubsRepository = getCustomRepository(UserClubsRepositories)
-        const clubRepository = getCustomRepository(ClubsRepositories)
+class UserJoinClubService {
 
-        const club = await clubRepository.findOne(club_id)
+    async execute({ user_id, clubs_id }: IUserJoinClub) {
 
-        if(!club){
-            throw new Error("Club don't exists")
+        const userClubsRepository = getCustomRepository(UserClubsRepositories);
+
+        const clubsRepository = getCustomRepository(ClubsRepositories);
+
+        const clubs = await clubsRepository.findByIds(clubs_id, {
+            where: {
+                approved: true
+            }
+        });
+
+        if (!clubs.length) {
+
+            throw new Error("This clubs don't exists, or don't is approved");
+
         }
 
-        if(!club.approved){
-            throw new Error("Club don't is approved")
-        }
+        const userClubs = (await userClubsRepository.find({ user_id })).map((user_club) => {
+            return user_club.club_id;
+        });
 
-        const userOnClub = await userClubsRepository.findOne({user_id, club_id})
 
-        if(userOnClub){
-            throw new Error("User already on club")
-        }
+        const makeJoins = clubs.map((club) => {
+            const userAlreadyOnClub = userClubs.indexOf(club.id);
 
-        const userClub = userClubsRepository.create({
-            user_id,
-            club_id
-        })
+            if(userAlreadyOnClub >= 0 ){
+                throw new Error(`User already on club '${club.name}'`);
+            }
 
-        await userClubsRepository.save(userClub)
+            return {
+                user_id,
+                club_id: club.id
+            };
+        });
 
-        const join = await userClubsRepository.findOne({user_id, club_id}, { relations: ["clubId"] })
+        const joins = userClubsRepository.create(makeJoins);
 
-        return {join}
+        await userClubsRepository.save(joins);
+
+        return { joins };
+
     }
+
 }
 
-export { UserJoinClubService }
+
+
+export { UserJoinClubService };

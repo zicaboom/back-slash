@@ -2,27 +2,27 @@ import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
 import { key } from "../config/configAuth";
 
-interface IPayload{
+interface IPayload {
     sub: string
 }
 
-export function ensureAuthenticated(req:Request, res: Response, next: NextFunction){
-    const authToken = req.headers.authorization
+export function ensureAuthenticated(req: Request, res: Response, next: NextFunction) {
+    const authToken = req.headers.authorization;
 
-    if(!authToken){
-        return res.status(401).end()
+    if (!authToken) {
+        return res.status(401).end();
     }
 
-    const [, token] = authToken.split(" ")
+    const [, token] = authToken.split(" ");
 
-    try{
-        const { sub } = verify(token, key) as IPayload
+    try {
+        const { sub } = verify(token, key) as IPayload;
 
-        req.user_id = sub
+        req.user_id = sub;
 
-        return next()
+        return next();
 
-    }catch(err){
-        return res.status(401).end()
+    } catch (err) {
+        return res.status(401).end();
     }
 }

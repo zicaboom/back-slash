@@ -25,13 +25,13 @@
 
 ### questions:
 
-[ x ] Não podem ter o conteúdo/titulo vazios
+[ x ] Não podem ter o conteúdo vazios
 
 [ x ] Só podem ser criados por usuários autenticados
 
-[ x ] Só podem ser criadas sem conteúdos vazios 
-
 [ x ] Só podem se juntar as clubs aprovados
+
+[  ] Só podem se juntar a um club uma vez
 
 ### aprovações:
 
@@ -49,7 +49,12 @@
 
 #### questions:
 
-[  ] São exibidas de acordo com os clubs
+[  ] Se você acessar a rota pura serão exibidas de acordo o seu usuário
+
+[ x ] Podem ser exibidas de acordo com os clubs colocando o id do club como parâmetro
+
+[ ] Com o all como parâmetro, são exibidas todas as questões
+
 
 #### users: 
 
@@ -60,14 +65,13 @@
 
 #### Processos para execução
 
-
-- Listagem de perguntas
-
 - Deleção de usuários
 
 - Deleção de perguntas
 
 - Deleção de clubs
+
+
 
 
 

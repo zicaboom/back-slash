@@ -1,9 +1,9 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn, UpdateDateColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { User } from "./User";
 
 @Entity("questions")
-class Question{
+class Question {
     @PrimaryColumn()
     id: string
 
@@ -19,15 +19,15 @@ class Question{
     @UpdateDateColumn()
     updated_at: Date
 
-    @JoinColumn({name: "created_by"})
-    @ManyToOne(()=>User)
+    @JoinColumn({ name: "created_by" })
+    @ManyToOne(() => User)
     createdBy: User
 
-    constructor(){
-        if(!this.id){
-            this.id = uuid()
+    constructor() {
+        if (!this.id) {
+            this.id = uuid();
         }
     }
 }
 
-export {Question}
+export { Question };

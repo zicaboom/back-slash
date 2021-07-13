@@ -3,15 +3,15 @@ import { Request, Response } from "express";
 
 class CreateQuestionController{
     async handle(req: Request, res: Response){
-        const user = req.user_id
-        const {content}=req.body
+        const user = req.user_id;
+        const {content}=req.body;
 
-        const createQuestionService = new CreateQuestionService
+        const createQuestionService = new CreateQuestionService;
 
-        const question = await createQuestionService.execute({user, content})
+        const question = await createQuestionService.execute({user, content});
 
-        return res.json(question)
+        return res.json(question);
     }
 }
 
-export{CreateQuestionController}
+export{CreateQuestionController};

@@ -10,29 +10,32 @@ import { ensureAuthenticated } from "./middlewares/ensureAuthenticated";
 import { ensureAdmin } from "./middlewares/ensureAdmin";
 import { ApproveClubController } from "./controllers/ApproveClubController";
 import { ListUserController } from "./controllers/ListUserController";
+import { ListQuestionByClubController } from "./controllers/ListQuestionByClubController";
 
-const routes = Router()
+const routes = Router();
 
-const createUserController = new CreateUserController
-const createClubController = new CreateClubController
-const authenticateUserController = new AuthenticateUserController
-const userJoinClubController = new UserJoinClubController
-const createQuestionController = new CreateQuestionController
-const questionJoinClubController = new QuestionJoinClubController
-const listClubController = new ListClubController
-const approveClubController = new ApproveClubController
-const listUserController =new ListUserController
+const createUserController = new CreateUserController;
+const createClubController = new CreateClubController;
+const authenticateUserController = new AuthenticateUserController;
+const userJoinClubController = new UserJoinClubController;
+const createQuestionController = new CreateQuestionController;
+const questionJoinClubController = new QuestionJoinClubController;
+const listClubController = new ListClubController;
+const approveClubController = new ApproveClubController;
+const listUserController = new ListUserController;
+const listQuestionController = new ListQuestionByClubController;
 
-routes.post("/users", createUserController.handle)
-routes.post("/login", authenticateUserController.handle)
-routes.post("/clubs", ensureAuthenticated, createClubController.handle)
-routes.post("/users/join", ensureAuthenticated, userJoinClubController.handle)
-routes.post("/questions", ensureAuthenticated, createQuestionController.handle)
-routes.post("/questions/join", ensureAuthenticated,questionJoinClubController.handle)
+routes.post("/users", createUserController.handle);
+routes.post("/login", authenticateUserController.handle);
+routes.post("/clubs", ensureAuthenticated, createClubController.handle);
+routes.post("/users/join", ensureAuthenticated, userJoinClubController.handle);
+routes.post("/questions", ensureAuthenticated, createQuestionController.handle);
+routes.post("/questions/join", ensureAuthenticated, questionJoinClubController.handle);
 
-routes.get("/clubs", ensureAuthenticated, listClubController.handle)
-routes.get("/users", ensureAuthenticated, listUserController.handle)
+routes.get("/clubs", ensureAuthenticated, listClubController.handle);
+routes.get("/users", ensureAuthenticated, listUserController.handle);
+routes.get("/questions/:club", ensureAuthenticated, listQuestionController.handle);
 
-routes.put("/clubs/approve", ensureAuthenticated, ensureAdmin, approveClubController.handle)
+routes.put("/clubs/approve", ensureAuthenticated, ensureAdmin, approveClubController.handle);
 
-export { routes }
+export { routes };

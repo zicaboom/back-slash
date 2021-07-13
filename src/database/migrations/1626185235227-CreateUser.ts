@@ -1,11 +1,11 @@
-import {MigrationInterface, QueryRunner, Table} from "typeorm";
+import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export class CreateQuestion1625487662461 implements MigrationInterface {
+export class CreateUser1625579046934 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: "questions",
+                name: "users",
                 columns: [
                     {
                         name: "id",
@@ -13,12 +13,21 @@ export class CreateQuestion1625487662461 implements MigrationInterface {
                         isPrimary: true
                     },
                     {
-                        name: "content",
-                        type: "text"
+                        name: "name",
+                        type: "varchar"
                     },
                     {
-                        name: "created_by",
+                        name: "email",
                         type: "varchar"
+                    },
+                    {
+                        name: "password",
+                        type: "varchar"
+                    },
+                    {
+                        name: "admin",
+                        type: "boolean",
+                        default: false
                     },
                     {
                         name: "created_at",
@@ -30,24 +39,12 @@ export class CreateQuestion1625487662461 implements MigrationInterface {
                         type: "timestamp",
                         default: "now()"
                     }
-                ],
-                foreignKeys:[
-                    {
-                        name: "FkUserCreateQuestion",
-                        referencedTableName: "users",
-                        referencedColumnNames: ["id"],
-                        columnNames: ["created_by"],
-                        onDelete: "CASCADE",
-                        onUpdate: "NO ACTION"
-                    }
                 ]
             })
-        )
+        );
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable("questions")
+        await queryRunner.dropTable("users");
     }
-
 }
-

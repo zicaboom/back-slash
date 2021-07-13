@@ -2,29 +2,29 @@ import { ClubsRepositories } from "../repositories/ClubsRepositories";
 import { UsersRepositories } from "../repositories/UsersRepositories";
 import { getCustomRepository } from "typeorm";
 
-class ListClubService{
-    async execute(user: string){
+class ListClubService {
+    async execute(user: string) {
 
-        const usersRepository = getCustomRepository(UsersRepositories)
+        const usersRepository = getCustomRepository(UsersRepositories);
 
-        const clubsRepository = getCustomRepository(ClubsRepositories)
+        const clubsRepository = getCustomRepository(ClubsRepositories);
 
-        const {admin} = await usersRepository.findOne(user)
+        const { admin } = await usersRepository.findOne(user);
 
-        if(admin){
-            const clubs = await clubsRepository.find()
+        if (admin) {
+            const clubs = await clubsRepository.find();
 
-            return { clubs }
+            return { clubs };
         }
 
         const clubs = await clubsRepository.find({
             where: {
                 approved: true
             }
-        })
+        });
 
-        return {clubs}
+        return { clubs };
     }
 }
 
-export { ListClubService }
+export { ListClubService };

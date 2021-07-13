@@ -1,26 +1,26 @@
 import { Exclude } from "class-transformer";
-import {Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn} from "typeorm";
+import { Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
 
 @Entity("users")
 class User {
 
     @PrimaryColumn()
-    id:string
+    id: string
 
     @Column()
-    name:string
+    name: string
 
     @Column()
-    email:string
+    email: string
 
     @Column()
     @Exclude()
-    password:string
-    
+    password: string
+
     @Column()
     @Exclude()
-    admin:boolean
+    admin: boolean
 
     @CreateDateColumn()
     created_at: Date
@@ -28,11 +28,11 @@ class User {
     @UpdateDateColumn()
     updated_at: Date
 
-    constructor(){
-        if(!this.id){
-            this.id = uuid()
+    constructor() {
+        if (!this.id) {
+            this.id = uuid();
         }
     }
 }
 
-export { User }
+export { User };
