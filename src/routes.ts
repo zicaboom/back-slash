@@ -11,6 +11,7 @@ import { ensureAdmin } from "./middlewares/ensureAdmin";
 import { ApproveClubController } from "./controllers/ApproveClubController";
 import { ListUserController } from "./controllers/ListUserController";
 import { ListQuestionByClubController } from "./controllers/ListQuestionByClubController";
+import { ListQuestionController } from "./controllers/ListQuestionController";
 
 const routes = Router();
 
@@ -23,7 +24,8 @@ const questionJoinClubController = new QuestionJoinClubController;
 const listClubController = new ListClubController;
 const approveClubController = new ApproveClubController;
 const listUserController = new ListUserController;
-const listQuestionController = new ListQuestionByClubController;
+const listQuestionByClubController = new ListQuestionByClubController;
+const listQuestionController = new ListQuestionController;
 
 routes.post("/users", createUserController.handle);
 routes.post("/login", authenticateUserController.handle);
@@ -34,7 +36,8 @@ routes.post("/questions/join", ensureAuthenticated, questionJoinClubController.h
 
 routes.get("/clubs", ensureAuthenticated, listClubController.handle);
 routes.get("/users", ensureAuthenticated, listUserController.handle);
-routes.get("/questions/:club", ensureAuthenticated, listQuestionController.handle);
+routes.get("/questions/:club", ensureAuthenticated, listQuestionByClubController.handle);
+routes.get("/questions", ensureAuthenticated, listQuestionController.handle);
 
 routes.put("/clubs/approve", ensureAuthenticated, ensureAdmin, approveClubController.handle);
 
