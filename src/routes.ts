@@ -12,6 +12,7 @@ import { ApproveClubController } from "./controllers/ApproveClubController";
 import { ListUserController } from "./controllers/ListUserController";
 import { ListQuestionByClubController } from "./controllers/ListQuestionByClubController";
 import { ListQuestionController } from "./controllers/ListQuestionController";
+import { DeleteUserController } from "./controllers/DeleteUserController";
 
 const routes = Router();
 
@@ -26,6 +27,7 @@ const approveClubController = new ApproveClubController;
 const listUserController = new ListUserController;
 const listQuestionByClubController = new ListQuestionByClubController;
 const listQuestionController = new ListQuestionController;
+const deleteUserController = new DeleteUserController;
 
 routes.post("/users", createUserController.handle);
 routes.post("/login", authenticateUserController.handle);
@@ -40,5 +42,7 @@ routes.get("/questions/:club", ensureAuthenticated, listQuestionByClubController
 routes.get("/questions", ensureAuthenticated, listQuestionController.handle);
 
 routes.put("/clubs/approve", ensureAuthenticated, ensureAdmin, approveClubController.handle);
+
+routes.delete("/users", ensureAuthenticated, deleteUserController.handle);
 
 export { routes };

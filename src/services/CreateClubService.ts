@@ -4,11 +4,11 @@ import { getCustomRepository } from "typeorm";
 
 interface ICreateClub {
     name: string
-    user: string
+    user_id: string
 }
 
 class CreateClubService {
-    async execute({ name, user }: ICreateClub) {
+    async execute({ name, user_id}: ICreateClub) {
         const clubsRepository = getCustomRepository(ClubsRepositories);
         const usersRepository = getCustomRepository(UsersRepositories);
 
@@ -22,13 +22,13 @@ class CreateClubService {
             throw new Error("Club already exists");
         }
 
-        const { admin } = await usersRepository.findOne(user);
+        const user = await usersRepository.findOne(user_id);
 
         const club = clubsRepository.create({
             name,
             created_by: user,
-            approved: admin,
-            approved_by: admin ? user : null
+            approved: user.admin,
+            approved_by: user.admin ? user : null
         });
 
         await clubsRepository.save(club);

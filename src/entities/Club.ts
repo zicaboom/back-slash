@@ -1,6 +1,6 @@
-import { Exclude } from "class-transformer";
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToMany, ManyToOne, PrimaryColumn, UpdateDateColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
+import { Question } from "./Question";
 import { User } from "./User";
 
 @Entity("clubs")
@@ -12,14 +12,7 @@ class Club {
     name: string
 
     @Column()
-    created_by: string
-
-    @Column()
     approved: boolean
-
-    @Column()
-    @Exclude()
-    approved_by: string
 
     @CreateDateColumn()
     created_at: Date
@@ -27,13 +20,21 @@ class Club {
     @UpdateDateColumn()
     updated_at: Date
 
-    @JoinColumn({ name: "created_by" })
-    @ManyToOne(() => User)
-    createdBy: User
 
+    @ManyToOne(() => User, User => User.created_clubs, {onDelete: "SET NULL", onUpdate:"CASCADE"})
+    @JoinColumn({ name: "created_by" })
+    created_by: User
+
+    @ManyToOne(() => User, User => User.approved_clubs, {onDelete: "SET NULL", onUpdate:"CASCADE"})
     @JoinColumn({ name: "approved_by" })
-    @ManyToOne(() => User)
-    approvedBy: User
+    approved_by: User
+
+    @ManyToMany(() => User, User => User.clubs)
+    users: User[]
+
+    @ManyToMany(() => Question, Question => Question.clubs)
+    questions: Question[]
+
 
     constructor() {
         if (!this.id) {

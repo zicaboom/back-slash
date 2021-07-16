@@ -10,6 +10,10 @@
 
 [ x ] Usuários não podem ter email/senha vazios
 
+[ x ] Só podem se juntar a um club uma vez 
+
+
+
 #### clubs: 
 
 [ x ] Não podem ter o nome vazio
@@ -31,7 +35,7 @@
 
 [ x ] Só podem se juntar as clubs aprovados
 
-[  ] Só podem se juntar a um club uma vez
+[ x ] Só podem se juntar a um club uma vez
 
 ### aprovações:
 
@@ -49,11 +53,11 @@
 
 #### questions:
 
-[  ] Se você acessar a rota pura serão exibidas de acordo o seu usuário
+[ x ] Se você acessar a rota pura serão exibidas de acordo o seu usuário
 
 [ x ] Podem ser exibidas de acordo com os clubs colocando o id do club como parâmetro
 
-[ ] Com o all como parâmetro, são exibidas todas as questões
+[ x ] Com o all como parâmetro, são exibidas todas as questões
 
 
 #### users: 
@@ -70,6 +74,10 @@
 - Deleção de perguntas
 
 - Deleção de clubs
+
+- Tirar usuários de grupos
+
+- Tirar questões de grupos
 
 
 

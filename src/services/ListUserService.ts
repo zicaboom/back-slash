@@ -1,5 +1,5 @@
 import { classToClass } from "class-transformer";
-import { UsersRepositories } from "src/repositories/UsersRepositories";
+import { UsersRepositories } from "../repositories/UsersRepositories";
 import { getCustomRepository } from "typeorm";
 
 

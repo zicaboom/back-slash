@@ -1,27 +1,23 @@
-import { QuestionClubsRepositories } from "src/repositories/QuestionClubsRepositories";
-import { QuestionRepositories } from "src/repositories/QuestionRepositories";
+
+import { ClubsRepositories } from "../repositories/ClubsRepositories";
+import { QuestionRepositories } from "../repositories/QuestionRepositories";
 import { getCustomRepository } from "typeorm";
 
 class ListQuestionByClubService {
-    async execute(club: string) {
+    async execute(club_id : string) {
         const questionRepository = getCustomRepository(QuestionRepositories);
+        const clubsRepository = getCustomRepository(ClubsRepositories);
 
-        const questionClubsRepository = getCustomRepository(QuestionClubsRepositories);
+        const club = await clubsRepository.findOne(club_id, {relations: ["questions"]});
 
-        if (club === "all") {
+        if (club_id === "all" || !club) {
             const questions = await questionRepository.find();
             return {
                 questions
             };
         }
 
-        const questionClub = await questionClubsRepository.find({
-            club_id: club
-        });
-
-        const questions = await questionRepository.findByIds(questionClub.map((question_club) => {
-            return question_club.question_id;
-        }));
+        const questions = club.questions;
 
         return {
             questions

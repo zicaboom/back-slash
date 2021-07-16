@@ -1,5 +1,6 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, PrimaryColumn, UpdateDateColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
+import { Club } from "./Club";
 import { User } from "./User";
 
 @Entity("questions")
@@ -10,18 +11,19 @@ class Question {
     @Column()
     content: string
 
-    @Column()
-    created_by: string
-
     @CreateDateColumn()
     created_at: Date
 
     @UpdateDateColumn()
     updated_at: Date
 
-    @JoinColumn({ name: "created_by" })
-    @ManyToOne(() => User)
-    createdBy: User
+    @ManyToOne(() => User, User => User.questions, {onDelete: "CASCADE", onUpdate: "CASCADE"})
+    @JoinColumn({name: "created_by"})
+    created_by: User
+
+    @ManyToMany(() => Club, Club => Club.questions, {onDelete: "CASCADE", onUpdate:"CASCADE"})
+    @JoinTable({name: "questions_clubs"})
+    clubs: Club[]
 
     constructor() {
         if (!this.id) {
