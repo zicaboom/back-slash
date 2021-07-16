@@ -1,6 +1,6 @@
-import { ClubsRepositories } from "../repositories/ClubsRepositories";
+import { ClubsRepositories } from "../../repositories/ClubsRepositories";
 import { getCustomRepository } from "typeorm";
-import { QuestionRepositories } from "../repositories/QuestionRepositories";
+import { QuestionRepositories } from "../../repositories/QuestionRepositories";
 
 interface IQuestionJoinClub {
     question_id: string,

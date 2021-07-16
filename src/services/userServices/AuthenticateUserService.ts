@@ -1,8 +1,8 @@
 import { compare } from "bcryptjs";
-import { UsersRepositories } from "../repositories/UsersRepositories";
+import { UsersRepositories } from "../../repositories/UsersRepositories";
 import { getCustomRepository } from "typeorm";
 import { sign } from "jsonwebtoken";
-import { key } from "../config/configAuth";
+import { key } from "../../config/configAuth";
 
 interface IAuthenticateUser {
     email: string

@@ -1,5 +1,5 @@
-import { ClubsRepositories } from "../repositories/ClubsRepositories";
-import { UsersRepositories } from "../repositories/UsersRepositories";
+import { ClubsRepositories } from "../../repositories/ClubsRepositories";
+import { UsersRepositories } from "../../repositories/UsersRepositories";
 import { getCustomRepository } from "typeorm";
 
 class ListClubService {

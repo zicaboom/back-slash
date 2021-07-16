@@ -3,7 +3,7 @@ import "express-async-errors";
 import "reflect-metadata";
 import "./database";
 import { cathErrors } from "./middlewares/catchErrors";
-import { routes } from "./routes";
+import { routes } from "./routes/routes";
 import cors from "cors";
 
 const app = express();

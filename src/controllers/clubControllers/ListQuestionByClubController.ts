@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { ListQuestionByClubService } from "../services/ListQuestionByClubService";
+import { ListQuestionByClubService } from "../../services/clubServices/ListQuestionByClubService";
 
 
 class ListQuestionByClubController{

@@ -1,6 +1,6 @@
-import { ClubsRepositories } from "../repositories/ClubsRepositories";
+import { ClubsRepositories } from "../../repositories/ClubsRepositories";
 import { getCustomRepository } from "typeorm";
-import { UsersRepositories } from "../repositories/UsersRepositories";
+import { UsersRepositories } from "../../repositories/UsersRepositories";
 
 interface IApproveClub {
     user_id: string,

@@ -1,4 +1,4 @@
-import { CreateQuestionService } from "../services/CreateQuestionService";
+import { CreateQuestionService } from "../../services/questionServices/CreateQuestionService";
 import { Request, Response } from "express";
 
 class CreateQuestionController{

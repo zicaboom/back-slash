@@ -1,6 +1,6 @@
-import { QuestionRepositories } from "../repositories/QuestionRepositories";
+import { QuestionRepositories } from "../../repositories/QuestionRepositories";
 import { getCustomRepository } from "typeorm";
-import { UsersRepositories } from "../repositories/UsersRepositories";
+import { UsersRepositories } from "../../repositories/UsersRepositories";
 
 interface IQuestionCreate {
     user_id: string
