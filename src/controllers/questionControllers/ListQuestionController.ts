@@ -3,11 +3,11 @@ import { ListQuestionService } from "../../services/questionServices/ListQuestio
 
 class ListQuestionController {
     async handle(req: Request, res: Response) {
-        const user = req.user_id;
+        const { user_id } = req;
 
         const listQuestionService = new ListQuestionService;
 
-        const questions = await listQuestionService.execute(user);
+        const questions = await listQuestionService.execute(user_id);
 
         return res.json(questions);
     }

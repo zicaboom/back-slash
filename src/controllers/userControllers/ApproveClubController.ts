@@ -4,7 +4,7 @@ import { Request, Response } from "express";
 
 class ApproveClubController {
     async handle(req: Request, res: Response) {
-        const user_id = req.user_id;
+        const { user_id } = req;
 
         const { clubs_id } = req.body;
 

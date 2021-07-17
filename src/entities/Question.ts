@@ -21,7 +21,7 @@ class Question {
     @JoinColumn({name: "created_by"})
     created_by: User
 
-    @ManyToMany(() => Club, Club => Club.questions, {onDelete: "CASCADE", onUpdate:"CASCADE"})
+    @ManyToMany(() => Club, Club => Club.questions)
     @JoinTable({name: "questions_clubs"})
     clubs: Club[]
 

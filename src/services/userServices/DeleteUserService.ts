@@ -10,20 +10,16 @@ class DeleteUserService {
     async execute({ reqUser, delUser }: IDeleteUser) {
         const userRepository = getCustomRepository(UsersRepositories);
 
-        const { admin } = await userRepository.findOne(reqUser);
+        const user = await userRepository.findOne(reqUser);
         const deleted = await userRepository.findOne(delUser);
 
-        if (!deleted) {
-            throw new Error("This user don't exists");
-        }
-
-        if (!admin && reqUser != deleted.id) {
+        if (user != deleted && !user.admin) {
             throw new Error("Unauthorized");
         }
 
-        await userRepository.delete(delUser);
+        await userRepository.delete(deleted.id);
 
-        return {deleted};
+        return { deleted };
     }
 }
 

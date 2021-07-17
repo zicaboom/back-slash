@@ -3,11 +3,8 @@ import { getCustomRepository } from "typeorm";
 import { UsersRepositories } from "../../repositories/UsersRepositories";
 
 interface IUserJoinClub {
-
     user_id: string,
-
     clubs_id: string[]
-
 }
 
 class UserJoinClubService {
@@ -38,11 +35,7 @@ class UserJoinClubService {
         await usersRepository.save(user);
 
         return { user };
-
     }
-
 }
-
-
 
 export { UserJoinClubService };

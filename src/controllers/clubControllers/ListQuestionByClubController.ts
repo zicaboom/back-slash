@@ -4,11 +4,11 @@ import { ListQuestionByClubService } from "../../services/clubServices/ListQuest
 
 class ListQuestionByClubController{
     async handle(req: Request, res: Response){
-        const  { club }  = req.params;
+        const  { club_id }  = req.params;
 
         const listQuestionService = new ListQuestionByClubService;
 
-        const questions = await listQuestionService.execute(club);
+        const questions = await listQuestionService.execute(club_id);
 
         return res.json(questions);
     }

@@ -20,8 +20,8 @@ class User {
     @Exclude()
     password: string
 
-    @Column()
     @Exclude()
+    @Column()
     admin: boolean
 
     @CreateDateColumn()
@@ -39,7 +39,7 @@ class User {
     @OneToMany(() => Club, Club => Club.approved_by)
     approved_clubs: Club[]
 
-    @ManyToMany(() => Club, Club => Club.users, {onDelete:"CASCADE", onUpdate:"CASCADE"})
+    @ManyToMany(() => Club, Club => Club.users)
     @JoinTable({ name: "users_clubs" })
     clubs: Club[]
 

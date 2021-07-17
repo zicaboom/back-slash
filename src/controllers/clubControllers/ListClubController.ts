@@ -4,11 +4,11 @@ import { Request, Response } from "express";
 
 class ListClubController{
     async handle(req: Request, res: Response){
-        const user = req.user_id;
+        const { user_id } = req;
 
         const listClubService = new ListClubService;
 
-        const clubs = await listClubService.execute(user);
+        const clubs = await listClubService.execute(user_id);
 
         return res.json(clubs);
     }

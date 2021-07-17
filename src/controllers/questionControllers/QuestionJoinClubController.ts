@@ -1,7 +1,6 @@
 import { QuestionJoinClubService } from "../../services/questionServices/QuestionJoinClubService";
 import { Request, Response } from "express";
 
-
 class QuestionJoinClubController{
     async handle(req: Request, res:Response){
         const { question_id, clubs_id } = req.body;

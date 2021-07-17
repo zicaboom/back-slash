@@ -29,10 +29,10 @@ class Club {
     @JoinColumn({ name: "approved_by" })
     approved_by: User
 
-    @ManyToMany(() => User, User => User.clubs)
+    @ManyToMany(() => User, User => User.clubs, {onDelete:"CASCADE", onUpdate:"CASCADE"})
     users: User[]
 
-    @ManyToMany(() => Question, Question => Question.clubs)
+    @ManyToMany(() => Question, Question => Question.clubs, {onDelete:"CASCADE", onUpdate:"CASCADE"})
     questions: Question[]
 
 

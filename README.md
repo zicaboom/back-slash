@@ -69,8 +69,6 @@
 
 #### Processos para execução
 
-- Deleção de usuários
-
 - Deleção de perguntas
 
 - Deleção de clubs
@@ -78,6 +76,10 @@
 - Tirar usuários de grupos
 
 - Tirar questões de grupos
+
+- Sistema de respostas de perguntas 
+
+- Curtidas de perguntas
 
 
 
