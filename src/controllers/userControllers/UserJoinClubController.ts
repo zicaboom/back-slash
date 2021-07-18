@@ -9,9 +9,9 @@ class UserJoinClubController {
 
         const userJoinClubService = new UserJoinClubService;
 
-        const joins = await userJoinClubService.execute({ user_id, clubs_id });
+        const user = await userJoinClubService.execute({ user_id, clubs_id });
 
-        return res.json(joins);
+        return res.json(user);
     }
 }
 

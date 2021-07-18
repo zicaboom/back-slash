@@ -12,6 +12,9 @@ class Club {
     name: string
 
     @Column()
+    description: string
+
+    @Column()
     approved: boolean
 
     @CreateDateColumn()
@@ -20,13 +23,10 @@ class Club {
     @UpdateDateColumn()
     updated_at: Date
 
-
     @ManyToOne(() => User, User => User.created_clubs, {onDelete: "SET NULL", onUpdate:"CASCADE"})
-    @JoinColumn({ name: "created_by" })
     created_by: User
 
     @ManyToOne(() => User, User => User.approved_clubs, {onDelete: "SET NULL", onUpdate:"CASCADE"})
-    @JoinColumn({ name: "approved_by" })
     approved_by: User
 
     @ManyToMany(() => User, User => User.clubs, {onDelete:"CASCADE", onUpdate:"CASCADE"})

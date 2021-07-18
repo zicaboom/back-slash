@@ -13,9 +13,9 @@ class QuestionJoinClubService {
         const clubsRepository = getCustomRepository(ClubsRepositories);
         const questionsRepository = getCustomRepository(QuestionRepositories);
 
-        const question = await questionsRepository.findOne(question_id, {relations: ["clubs"]});
+        const questionExists = await questionsRepository.findOne(question_id, { relations: ["clubs"] });
 
-        if (!question) {
+        if (!questionExists) {
             throw new Error("Question don't exists");
         }
 
@@ -29,11 +29,13 @@ class QuestionJoinClubService {
             throw new Error("This clubs don't exists, or don't is approved");
         }
 
-        clubs.forEach((club)=>{
-            question.clubs.push(club);
+        clubs.forEach((club) => {
+            questionExists.clubs.push(club);
         });
 
-        await questionsRepository.save(question);
+        await questionsRepository.save(questionExists);
+
+        const question = await questionsRepository.findOne(questionExists.id, {relations:["clubs"]});
 
         return { question };
 

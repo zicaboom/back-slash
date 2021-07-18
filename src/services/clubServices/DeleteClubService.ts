@@ -11,16 +11,16 @@ class DeleteClubService {
         const clubsRepository = getCustomRepository(ClubsRepositories);
         const usersRepository = getCustomRepository(UsersRepositories);
 
-        const club = await clubsRepository.findOne(club_id);
+        const club = await clubsRepository.findOne(club_id, {relations: ["created_by"]});
         const user = await usersRepository.findOne(user_id);
 
         if (club.created_by != user && !user.admin) {
             throw new Error("Unauthorized");
         }
 
-        await clubsRepository.delete(club.id);
+        clubsRepository.delete(club.id);
 
-        return { club };
+        return;
     }
 }
 

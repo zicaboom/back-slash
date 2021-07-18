@@ -7,13 +7,13 @@ class DeleteUserController {
 
         const reqUser = req.user_id;
 
-        const delUser = req.body.id;
+        const { delUser } = req.params;
 
         const deleteUserService = new DeleteUserService;
 
-        const deleted = await deleteUserService.execute({ reqUser, delUser });
+        await deleteUserService.execute({ reqUser, delUser });
 
-        return res.json(deleted);
+        return res.send();
     }
 }
 

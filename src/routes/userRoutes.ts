@@ -26,7 +26,7 @@ userRoutes.get("/users", ensureAuthenticated, listUserController.handle);
 
 userRoutes.put("/clubs/approve", ensureAuthenticated, ensureAdmin, approveClubController.handle);
 
-userRoutes.delete("/users", ensureAuthenticated, deleteUserController.handle);
+userRoutes.delete("/users/:delUser", ensureAuthenticated, deleteUserController.handle);
 
 export { userRoutes };
 

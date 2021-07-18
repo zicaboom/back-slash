@@ -17,9 +17,9 @@ class DeleteUserService {
             throw new Error("Unauthorized");
         }
 
-        await userRepository.delete(deleted.id);
+        userRepository.delete(deleted.id);
 
-        return { deleted };
+        return;
     }
 }
 

@@ -1,7 +1,6 @@
 import { ListClubService } from "../../services/clubServices/ListClubService";
 import { Request, Response } from "express";
 
-
 class ListClubController{
     async handle(req: Request, res: Response){
         const { user_id } = req;

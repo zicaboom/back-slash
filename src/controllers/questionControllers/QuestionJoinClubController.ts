@@ -7,9 +7,9 @@ class QuestionJoinClubController{
 
         const questionJoinClubService = new QuestionJoinClubService;
         
-        const joins = await questionJoinClubService.execute({ question_id, clubs_id});
+        const question = await questionJoinClubService.execute({ question_id, clubs_id});
 
-        return res.json(joins);
+        return res.json(question);
     }
 }
 

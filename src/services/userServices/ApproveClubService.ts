@@ -15,24 +15,24 @@ class ApproveClubService {
 
         const user = await usersRepository.findOne(user_id);
 
-        const clubs = await clubsRepository.findByIds(clubs_id, {
+        const clubsExists = await clubsRepository.findByIds(clubs_id, {
             where: {
                 approved: false
             }
         });
 
-        if (!clubs.length) {
+        if (!clubsExists.length) {
             throw new Error("This clubs don't exists, or already approved");
         }
 
-        await clubsRepository.update(clubs.map(club => club.id), {
+        await clubsRepository.update(clubsExists.map(club => club.id), {
             approved: true,
             approved_by: user
         });
 
-        const approved = await clubsRepository.findByIds(clubs.map(club => club.id));
+        const clubs = await clubsRepository.findByIds(clubsExists.map(club => club.id));
 
-        return { approved };
+        return { clubs };
     }
 }
 

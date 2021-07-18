@@ -6,6 +6,7 @@ import { cathErrors } from "./middlewares/catchErrors";
 import { routes } from "./routes/routes";
 import cors from "cors";
 
+
 const app = express();
 const PORT = 4000;
 

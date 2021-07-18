@@ -1,6 +1,5 @@
 import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
-import { key } from "../config/configAuth";
 
 interface IPayload {
     sub: string
@@ -16,7 +15,7 @@ export function ensureAuthenticated(req: Request, res: Response, next: NextFunct
     const [, token] = authToken.split(" ");
 
     try {
-        const { sub } = verify(token, key) as IPayload;
+        const { sub } = verify(token, process.env.AUTH_KEY) as IPayload;
 
         req.user_id = sub;
 

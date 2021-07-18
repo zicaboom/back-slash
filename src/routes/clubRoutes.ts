@@ -17,6 +17,6 @@ clubRoutes.post("/clubs", ensureAuthenticated, createClubController.handle);
 clubRoutes.get("/questions/:club", ensureAuthenticated, listQuestionByClubController.handle);
 clubRoutes.get("/clubs", ensureAuthenticated, listClubController.handle);
 
-clubRoutes.delete("/clubs", ensureAuthenticated, deleteClubController.handle);
+clubRoutes.delete("/clubs/:club_id", ensureAuthenticated, deleteClubController.handle);
 
 export { clubRoutes };

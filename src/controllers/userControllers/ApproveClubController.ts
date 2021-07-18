@@ -10,9 +10,9 @@ class ApproveClubController {
 
         const approveClubService = new ApproveClubService;
 
-        const approved = await approveClubService.execute({ user_id, clubs_id });
+        const clubs = await approveClubService.execute({ user_id, clubs_id });
 
-        return res.json(approved);
+        return res.json(clubs);
     }
 }
 

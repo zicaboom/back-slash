@@ -14,9 +14,7 @@ class UserJoinClubService {
         const clubsRepository = getCustomRepository(ClubsRepositories);
         const usersRepository = getCustomRepository(UsersRepositories);
 
-        const user = await usersRepository.findOne(user_id, {
-            relations: ["clubs"]
-        });
+        const userExists = await usersRepository.findOne(user_id, { relations: ["clubs"] });
 
         const clubs = await clubsRepository.findByIds(clubs_id, {
             where: {
@@ -29,10 +27,12 @@ class UserJoinClubService {
         }
 
         clubs.forEach((club) => {
-            user.clubs.push(club);
+            userExists.clubs.push(club);
         });
 
-        await usersRepository.save(user);
+        await usersRepository.save(userExists);
+
+        const user = await usersRepository.findOne(userExists.id, {relations: ["clubs"]});
 
         return { user };
     }

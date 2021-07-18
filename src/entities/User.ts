@@ -1,6 +1,6 @@
-import { Exclude } from "class-transformer";
 import { Column, CreateDateColumn, Entity, JoinTable, ManyToMany, OneToMany, PrimaryColumn, UpdateDateColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
+import { Answer } from "./Answer";
 import { Club } from "./Club";
 import { Question } from "./Question";
 
@@ -17,10 +17,8 @@ class User {
     email: string
 
     @Column()
-    @Exclude()
     password: string
 
-    @Exclude()
     @Column()
     admin: boolean
 
@@ -32,6 +30,13 @@ class User {
 
     @OneToMany(() => Question, Question => Question.created_by)
     questions: Question[]
+
+    @ManyToMany(()=> Question, Question => Question.likes)
+    @JoinTable({name: "users_likes_questions"})
+    liked_questions: Question[]
+
+    @OneToMany(()=>Answer, Answer=> Answer.created_by)
+    answers: Answer[]
 
     @OneToMany(() => Club, Club => Club.created_by)
     created_clubs: Club[]
