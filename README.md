@@ -69,10 +69,6 @@
 
 #### Processos para execução
 
-- Deleção de perguntas
-
-- Deleção de clubs
-
 - Tirar usuários de grupos
 
 - Tirar questões de grupos
