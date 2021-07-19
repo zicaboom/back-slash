@@ -1,0 +1,14 @@
+user.id oneToMany questions.createdById 
+user.id oneToMany clubs.createdById
+user.id oneToMany clubs.approvedById
+user.id oneToMany answers.createdById
+
+questions.id oneToMany answers.questionId
+
+Many to many
+
+users_clubs: usersId & clubsId
+
+users_likes_questions: usersId & questionsId
+
+questions_clubs: questionsId & clubsId 
