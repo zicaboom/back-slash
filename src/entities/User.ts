@@ -35,6 +35,10 @@ class User {
     @JoinTable({name: "users_likes_questions"})
     liked_questions: Question[]
 
+    @ManyToMany(()=> Answer, Answer => Answer.likes)
+    @JoinTable({name: "users_likes_answers"})
+    liked_answers: Answer[]
+
     @OneToMany(()=>Answer, Answer=> Answer.created_by)
     answers: Answer[]
 

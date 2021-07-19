@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, ManyToMany, ManyToOne, PrimaryColumn, UpdateDateColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { Question } from "./Question";
 import { User } from "./User";
@@ -14,6 +14,9 @@ class Answer {
   
     @ManyToOne(()=>User, User => User.answers, { onDelete: "CASCADE", onUpdate: "CASCADE" })
     created_by: User
+
+    @ManyToMany(() => User, User => User.liked_answers, { onDelete: "CASCADE", onUpdate: "CASCADE"})
+    likes:User[]
 
     @ManyToOne(()=>Question, Question => Question.answers, { onDelete: "CASCADE", onUpdate: "CASCADE" })
     question: Question

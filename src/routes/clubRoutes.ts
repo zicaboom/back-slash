@@ -1,7 +1,7 @@
 import { CreateClubController } from "../controllers/clubControllers/CreateClubController";
 import { ListClubController } from "../controllers/clubControllers/ListClubController";
 import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
-import { ListQuestionByClubController } from "../controllers/clubControllers/ListQuestionByClubController";
+import { ListQuestionByClubController } from "../controllers/questionControllers/ListQuestionByClubController";
 import { Router } from "express";
 import { DeleteClubController } from "controllers/clubControllers/DeleteClubController";
 

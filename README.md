@@ -77,6 +77,7 @@
 
 - Curtidas de perguntas
 
+- Deletar respostas
 
 
 
