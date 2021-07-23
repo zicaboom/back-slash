@@ -12,6 +12,12 @@
 
 [ x ] Só podem se juntar a um club uma vez 
 
+#### list by:
+
+- name 
+- all
+- clubs
+
 
 
 #### clubs: 
@@ -26,6 +32,14 @@
 
 [ x ] Só podem ser criados por usuários autenticados
 
+#### list by:
+
+- user 
+- name 
+- description
+- question
+- all
+
 
 ### questions:
 
@@ -36,6 +50,31 @@
 [ x ] Só podem se juntar as clubs aprovados
 
 [ x ] Só podem se juntar a um club uma vez
+
+#### list by: 
+
+- user 
+- content
+- club
+- all
+
+### answers:
+
+[ x ] Não podem ter o conteúdo vazios
+
+[ x ] Só podem ser criados por usuários autenticados
+
+[ x ] Só podem aparecer em perguntas não denunciadas
+
+[ x ] Só podem existir uma com o mesmo conteúdo por questão
+
+#### list by: 
+
+- user 
+- content
+- club
+- all
+
 
 ### aprovações:
 
@@ -72,8 +111,6 @@
 - Tirar usuários de grupos
 
 - Tirar questões de grupos
-
-- Sistema de respostas de perguntas 
 
 - Curtidas de perguntas
 

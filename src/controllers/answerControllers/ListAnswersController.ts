@@ -3,7 +3,8 @@ import { ListAnswersService } from "services/answersServices/ListAnswersService"
 
 
 class ListAnswersController {
-    async handle(_: Request, res: Response) {
+    async handle(_: Request, res: Response) {     
+
         const listAnswersService = new ListAnswersService;
 
         const answers = await listAnswersService.execute();
