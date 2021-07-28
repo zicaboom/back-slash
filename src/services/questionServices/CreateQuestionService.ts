@@ -10,7 +10,6 @@ interface IQuestionCreate {
 class CreateQuestionService {
     async execute({ user_id, content }: IQuestionCreate) {
         const userRepository = getCustomRepository(UsersRepositories);
-
         const questionRepository = getCustomRepository(QuestionRepositories);
 
         const user = await userRepository.findOne(user_id);
@@ -19,7 +18,7 @@ class CreateQuestionService {
             throw new Error("Content Incorrect");
         }
 
-        const questionAlreadyExists = await questionRepository.findOne({ content });
+        const questionAlreadyExists = await questionRepository.findOne({ content, created_by: user });
 
         if (questionAlreadyExists) {
             throw new Error("Question already exists");

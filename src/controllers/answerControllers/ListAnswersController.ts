@@ -1,9 +1,8 @@
 import { Request, Response } from "express";
 import { ListAnswersService } from "services/answersServices/ListAnswersService";
 
-
 class ListAnswersController {
-    async handle(_: Request, res: Response) {     
+    async handle(req: Request, res: Response) {     
 
         const listAnswersService = new ListAnswersService;
 

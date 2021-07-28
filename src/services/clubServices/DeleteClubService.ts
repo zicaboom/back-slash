@@ -14,11 +14,12 @@ class DeleteClubService {
         const club = await clubsRepository.findOne(club_id, {relations: ["created_by"]});
         const user = await usersRepository.findOne(user_id);
 
+        // se o usuário não criou o club e nem é admin ele não pode deletar o clube
         if (club.created_by != user && !user.admin) {
             throw new Error("Unauthorized");
         }
 
-        clubsRepository.delete(club.id);
+        await clubsRepository.delete(club.id);
 
         return;
     }

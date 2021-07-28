@@ -19,7 +19,7 @@ class DeleteQuestionService {
             throw new Error("Unauthorized");
         }
 
-        questionsRepository.delete(question.id);
+        await questionsRepository.delete(question.id);
 
         return;
     }

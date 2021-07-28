@@ -19,9 +19,7 @@ class ListQuestionByClubService {
 
         const questions = club.questions;
 
-        return {
-            questions
-        };
+        return { questions };
     }
 }
 
