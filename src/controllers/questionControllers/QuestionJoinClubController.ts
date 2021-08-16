@@ -1,4 +1,4 @@
-import { QuestionJoinClubService } from "../../services/questionServices/QuestionJoinClubService";
+import { QuestionJoinClubService } from "../../services/questionServices/QuestionJoinClubsService";
 import { Request, Response } from "express";
 
 class QuestionJoinClubController{

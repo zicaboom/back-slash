@@ -15,17 +15,17 @@ class Question {
     @Column({default: false})
     denounced: boolean
 
-    @ManyToMany(()=>User, User => User.liked_questions, {onDelete: "CASCADE", onUpdate: "CASCADE"})
+    @ManyToMany(()=>User, User => User.liked_questions, {onDelete: "CASCADE", onUpdate: "CASCADE", eager: true})
     likes: User[]
 
-    @ManyToOne(() => User, User => User.questions, { onDelete: "CASCADE", onUpdate: "CASCADE" })
+    @ManyToOne(() => User, User => User.questions, { onDelete: "CASCADE", onUpdate: "CASCADE", eager: true})
     created_by: User
 
     @ManyToMany(() => Club, Club => Club.questions)
     @JoinTable({ name: "questions_clubs" })
     clubs: Club[]
     
-    @OneToMany(()=>Answer, Answer => Answer.question)
+    @OneToMany(()=>Answer, Answer => Answer.question, {eager: true})
     answers: Answer[]
 
     @CreateDateColumn()

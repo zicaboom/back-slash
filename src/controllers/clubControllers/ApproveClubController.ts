@@ -1,4 +1,4 @@
-import { ApproveClubService } from "../../services/userServices/ApproveClubService";
+import { ApproveClubService } from "../../services/clubServices/ApproveClubService";
 import { Request, Response } from "express";
 
 

@@ -1,14 +1,15 @@
 import { UsersRepositories } from "../../repositories/UsersRepositories";
 import { getCustomRepository } from "typeorm";
 
-class ListUserService {
-    async execute() {
+
+class ListUserLikedQuestionsService {
+    async execute(user_id: string) {
         const usersRepository = getCustomRepository(UsersRepositories);
 
-        const users = await usersRepository.find();
+        const users = await usersRepository.findOne(user_id, {relations: ["liked_questions"]});
 
         return { users };
     }
 }
 
-export { ListUserService };
+export { ListUserLikedQuestionsService };

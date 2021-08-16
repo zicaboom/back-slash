@@ -23,7 +23,7 @@ class Club {
     @UpdateDateColumn()
     updated_at: Date
 
-    @ManyToOne(() => User, User => User.created_clubs, {onDelete: "SET NULL", onUpdate:"CASCADE"})
+    @ManyToOne(() => User, User => User.created_clubs, {onDelete: "SET NULL", onUpdate:"CASCADE", eager: true})
     created_by: User
 
     @ManyToOne(() => User, User => User.approved_clubs, {onDelete: "SET NULL", onUpdate:"CASCADE"})

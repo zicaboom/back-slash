@@ -12,13 +12,13 @@ class Answer {
     @Column()
     content: string 
   
-    @ManyToOne(()=>User, User => User.answers, { onDelete: "CASCADE", onUpdate: "CASCADE" })
+    @ManyToOne(()=>User, User => User.answers, { onDelete: "CASCADE", onUpdate: "CASCADE", eager: true})
     created_by: User
 
-    @ManyToMany(() => User, User => User.liked_answers, { onDelete: "CASCADE", onUpdate: "CASCADE"})
+    @ManyToMany(() => User, User => User.liked_answers, { onDelete: "CASCADE", onUpdate: "CASCADE", eager: true})
     likes:User[]
 
-    @ManyToOne(()=>Question, Question => Question.answers, { onDelete: "CASCADE", onUpdate: "CASCADE" })
+    @ManyToOne(()=>Question, Question => Question.answers, { onDelete: "CASCADE", onUpdate: "CASCADE"})
     question: Question
 
     @CreateDateColumn()

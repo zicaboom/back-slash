@@ -18,9 +18,7 @@ class ListClubService {
 
         // se não apenas aos clubes aprovados
         const clubs = await clubsRepository.find({
-            where: {
-                approved: true
-            }
+            where: {approved: true}
         });
 
         return { clubs };

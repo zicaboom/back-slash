@@ -3,8 +3,8 @@
     "host": "localhost",
     "port": 3306,
     "username": "root",
-    "password": "",
-    "database": "back_slash",
+    "password": "12345678",
+    "database": "back_slash_test",
     "migrations": ["./src/database/migrations/*.ts", "./dist/database/migrations/*.js"],
     "entities": ["./src/entities/*.ts", "./dist/entities/*.js"],
     "cli": {

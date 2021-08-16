@@ -28,7 +28,7 @@ class AuthenticateUserService {
             email: user.email
         }, process.env.AUTH_KEY, {
             subject: user.id,
-            expiresIn: "1d"
+            expiresIn: "1y"
         });
 
         return { token };

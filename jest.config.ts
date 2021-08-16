@@ -4,5 +4,5 @@ export default {
 	coverageProvider: "v8",
 	verbose: true,
 	preset: "ts-jest"
-}
+};
 
