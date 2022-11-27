@@ -42,11 +42,11 @@ class User {
     @OneToMany(()=>Answer, Answer=> Answer.created_by)
     answers: Answer[]
 
+    @ManyToMany(() => Club, Club => Club.reports)
+    reports: Club[];
+
     @OneToMany(() => Club, Club => Club.created_by)
     created_clubs: Club[]
-
-    @OneToMany(() => Club, Club => Club.approved_by)
-    approved_clubs: Club[]
 
     @ManyToMany(() => Club, Club => Club.users)
     @JoinTable({ name: "users_clubs" })

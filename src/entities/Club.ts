@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToMany, ManyToOne, PrimaryColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinTable, ManyToMany, ManyToOne, PrimaryColumn, UpdateDateColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { Question } from "./Question";
 import { User } from "./User";
@@ -14,9 +14,6 @@ class Club {
     @Column()
     description: string
 
-    @Column()
-    approved: boolean
-
     @CreateDateColumn()
     created_at: Date
 
@@ -26,10 +23,11 @@ class Club {
     @ManyToOne(() => User, User => User.created_clubs, {onDelete: "SET NULL", onUpdate:"CASCADE", eager: true})
     created_by: User
 
-    @ManyToOne(() => User, User => User.approved_clubs, {onDelete: "SET NULL", onUpdate:"CASCADE"})
-    approved_by: User
+    @ManyToMany(() => User, User => User.reports ,{ onDelete: "CASCADE", onUpdate: "CASCADE"})
+    @JoinTable({name: "reports"})
+    reports: User[]
 
-    @ManyToMany(() => User, User => User.clubs, {onDelete:"CASCADE", onUpdate:"CASCADE"})
+    @ManyToMany(() => User, User => User.clubs, {onDelete:"CASCADE", onUpdate:"CASCADE", eager: true})
     users: User[]
 
     @ManyToMany(() => Question, Question => Question.clubs, {onDelete:"CASCADE", onUpdate:"CASCADE"})
